@@ -98,6 +98,8 @@ static device_t devices[] =
   { 0x1001000a, "SAM D21E18A",  256*1024, 4096 },
   { 0x10010006, "SAM D21G17A",  128*1024, 2048 },
   { 0x10010005, "SAM D21G18A",  256*1024, 4096 },
+  { 0x60060005, "SAM D51J19A",  512*1024, 1024 },
+  { 0x60060007, "SAM D51G19A",  512*1024, 1024 },
   { 0x11010000, "SAM C21J18A",  256*1024, 4096 },
   { 0x11010005, "SAM C21G18A",  256*1024, 4096 },
   { 0x10810019, "SAM L21E18B",  256*1024, 4096 },
@@ -144,7 +146,8 @@ static void target_select(target_options_t *options)
     }
   }
 
-  error_exit("unknown target device (DSU_DID = 0x%08x)", dsu_did);
+  error_exit("unknown target device (DSU_DID = 0x%08x, ID = %02x, REV = %02x)",
+             dsu_did, id, rev);
 }
 
 //-----------------------------------------------------------------------------
